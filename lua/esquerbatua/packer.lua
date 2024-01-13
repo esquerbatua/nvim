@@ -30,7 +30,7 @@ return packer.startup(function(use)
         config = function()
             vim.cmd('colorscheme rose-pine')
         end
-    }
+    } 
     use {
         'nvim-treesitter/nvim-treesitter',
         run = function()
@@ -52,5 +52,12 @@ return packer.startup(function(use)
         end
     }
     --use 'folke/zen-mode.nvim'
+    use 'nvim-lua/plenary.nvim'
+    use {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        requires = { {"nvim-lua/plenary.nvim"} }
+    }
+    use 'mg979/vim-visual-multi'
 end)
 

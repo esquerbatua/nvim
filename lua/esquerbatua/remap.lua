@@ -3,11 +3,11 @@ local builtin = require("telescope.builtin")
 
 vim.g.mapleader = ' '
 
-set('n', '<leader>pv', vim.cmd.Ex)
+set('n', '<M-f>', vim.cmd.Ex)
 set('n', '<F2>', builtin.git_files)
 set('n', '<F3>', builtin.find_files)
 set('n', '<F4>', builtin.live_grep)
-set('n', '<leader>q', vim.cmd.quit)
+set('n', '<leader-q>', vim.cmd.quit)
 set('n', '<leader>vh', builtin.help_tags, {})
 
 
@@ -18,18 +18,8 @@ set('n', '<leader><Left>', '<C-w><C-h>')
 set('n', '<leader><Right>', '<C-w><C-l>')
 
 set('n', '<leader>w', '<C-w>v')
-set('n', '-', function()
-    vim.cmd("vertical resize -10")
-end)
-set('n', '+', function()
-    vim.cmd('vertical resize +10')
-end)
---[[
-set('n', '<leader>t', function()
-    --vim.notify('asd', vim.log.levels.INFO)
-    require('notify')('test')
-end)
-]]--
+set('n', '-', function() vim.cmd("vertical resize -10") end)
+set('n', '+', function() vim.cmd('vertical resize +10') end)
 
 set('n', '<leader>n', function()
     require('telescope').extensions.notify.notify()
