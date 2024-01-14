@@ -7,24 +7,29 @@ set('n', '<M-f>', vim.cmd.Ex)
 set('n', '<F2>', builtin.git_files)
 set('n', '<F3>', builtin.find_files)
 set('n', '<F4>', builtin.live_grep)
-set('n', '<leader-q>', vim.cmd.quit)
 set('n', '<leader>vh', builtin.help_tags, {})
 
+-- Editor
+set('i', '<C-Del>', 'X<Esc>lbce')
+set('i', '<C-BS>', 'X<Esc>ce')
 
---Move cursor over opened splits
-set('n', '<leader>Up', '<C-w><C-k>')
-set('n', '<leader>Down', '<C-w><C-j>')
-set('n', '<leader>Left', '<C-w><C-h>')
-set('n', '<leader>Right', '<C-w><C-l>')
+-- Move cursor over opened splits
+set('n', '<leader-Up>', '<C-w>k')
+set('n', '<leader-Down>', '<C-w>j')
+set('n', '<leader-Left>', '<C-w>h')
+set('n', '<leader-Right>', '<C-w>l')
 
+-- Window management
 set('n', '<leader>w', '<C-w>v')
+set('n', '<leader>q', vim.cmd.quit)
 set('n', '-', function() vim.cmd("vertical resize -10") end)
 set('n', '+', function() vim.cmd('vertical resize +10') end)
 
+-- Notifications
 set('n', '<leader>n', function() require('telescope').extensions.notify.notify() end)
 
 set('v', 'J', ":m '>+1<CR>gv=gv")
-set('v', 'K', ":m '<-2<CR>gv=gv")
+--set('v', 'K', ":m '<-2<CR>gv=gv")
 
 --set('n', 'J', 'mzJ`z')
 set('n', '<C-d>', '<C-d>zz')
