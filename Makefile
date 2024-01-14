@@ -1,4 +1,4 @@
 .MAIN: install
 
 install:
-	apt install ripgrep
+	apt install ripgrep fd-find
