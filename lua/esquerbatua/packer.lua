@@ -45,7 +45,7 @@ return packer.startup(function(use)
                 render = 'compact',
                 stages = 'slide',
                 background_colour = 'FloatShadow',
-                timeout = 2000,
+                timeout = 5000,
                 minimum_width = 20,
             }
             vim.notify = require('notify')
@@ -70,5 +70,27 @@ return packer.startup(function(use)
             }
         end
     }
-end)
+    use {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v3.x',
+        requires = {
+            -- LSP Support
+            {'neovim/nvim-lspconfig'},
+            {'williamboman/mason.nvim'},
+            {'williamboman/mason-lspconfig.nvim'},
 
+            -- Autocompletion
+            {'hrsh7th/nvim-cmp'},
+            {'hrsh7th/cmp-buffer'},
+            {'hrsh7th/cmp-path'},
+            {'saadparwaiz1/cmp_luasnip'},
+            {'hrsh7th/cmp-nvim-lsp'},
+            {'hrsh7th/cmp-nvim-lua'},
+
+            -- Snippets
+            {'L3MON4D3/LuaSnip'},
+            {'rafamadriz/friendly-snippets'},
+        }
+    }
+    use 'laytan/cloak.nvim'
+end)

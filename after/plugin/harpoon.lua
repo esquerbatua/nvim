@@ -12,7 +12,6 @@ set('n', '<M-j>', function() harpoon:list():select(2) end)
 set('n', '<M-k>', function() harpoon:list():select(3) end)
 set('n', '<M-l>', function() harpoon:list():select(4) end)
 
--- Toggle previous & next buffers stored within Harpoon list
 set('n', '<M-o>', function() harpoon:list():prev() end)
 set('n', '<M-p>', function() harpoon:list():next() end)
 

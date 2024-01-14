@@ -2,10 +2,8 @@ local set = vim.keymap.set
 
 vim.g.mapleader = ' '
 
+--set('n', '<leader>tv', ':!v -stats test .<CR>')
 
-set('n', '<leader>tv', ':!v -stats test .<CR>')
-
---[[
 function on_file_change()
     local new_tick = vim.fn.getftime(buffer)
     --vim.notify('buffer: ' .. buffer .. 'file tick: ' .. new_tick .. ', current tick: ' .. current_tick)
@@ -21,20 +19,19 @@ function on_file_change()
     end
 end
 
-set('n', '<leader>t', function()
+set('n', '<leader>tv', function()
     buffer = vim.fn.tempname()
     current_tick = vim.fn.getftime(buffer)
 
     vim.api.nvim_exec([[
-        augroup FileChangedAutocmd
-        autocmd!
-        autocmd FocusGained * lua on_file_change()
-        autocmd CursorHold,CursorHoldI * lua on_file_change()
-        augroup END
-    , false)
+    augroup FileChangedAutocmd
+    autocmd!
+    autocmd FocusGained * lua on_file_change()
+    autocmd CursorHold,CursorHoldI * lua on_file_change()
+    augroup END
+    ]], false)
     vim.notify('Running tests...', 'info', { timeout = 1000 })
     local res = vim.fn.system('v -stats test . 2>&1 > ' .. buffer)
     --vim.notify('new tick: ' .. current_tick)
     --vim.notify(res)
 end)
-]]--
