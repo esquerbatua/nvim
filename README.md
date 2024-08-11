@@ -3,8 +3,9 @@ Vim init
 
 # Installation
 
-sh```
 {{ current.branch }}
+
+sh```
 sudo apt install neovim
 git clone git@github.com:esquerbatua/nvim.git
 ```
