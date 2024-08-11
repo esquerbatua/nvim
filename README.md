@@ -5,6 +5,6 @@ Vim init
 
 ```sh
 sudo apt install neovim
-git clone git@github.com:esquerbatua/nvim.git
+git clone git@github.com:esquerbatua/nvim.git ~/.config/nvim
 ```
 
